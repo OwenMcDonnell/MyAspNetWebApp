@@ -3,7 +3,7 @@ image: Visual Studio 2017
 environment:
   test_var: test_val
 before_build:
-  - gci env:*
+  - ps: gci env:*
   - nuget restore
 build:
   verbosity: minimal
