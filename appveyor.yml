@@ -1,7 +1,17 @@
 version: 1.0.{build}
 image: Visual Studio 2017
-
+environment:
+  - test_var: test_val
 before_build:
+  - gci env:*
   - nuget restore
 build:
   verbosity: minimal
+  
+for:
+  -
+    branches:
+      only: 
+        - test
+    environment:
+      - test_var: overridden
