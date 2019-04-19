@@ -1,7 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 environment:
-  test_var: test_val
+  test_var: pr_test_val
 before_build:
   - ps: gci env:*
   - nuget restore
