@@ -2,6 +2,8 @@ version: 1.0.{build}
 image: Visual Studio 2017
 environment:
   test_var: test_val
+install:
+  - DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0
 before_build:
   - ps: gci env:*
   - nuget restore
