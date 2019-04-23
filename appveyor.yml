@@ -4,13 +4,13 @@ environment:
   test_var: test_val
 init:
   - ps: Invoke-WebRequest "http://download.microsoft.com/download/B/E/6/BE63E3A5-5D1C-43E7-9875-DFA2B301EC70/adk/adksetup.exe" -OutFile c:\adksetup.exe
-  - ps: c:\adksetup.exe /quiet 
+  - ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
 install:
   #- ps: Invoke-WebRequest "http://download.microsoft.com/download/0/1/C/01CC78AA-B53B-4884-B7EA-74F2878AA79F/adk/adksetup.exe" -OutFile c:\adksetup.exe
   #- ps: c:\adksetup.exe /quiet 
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\x86\DISM
-  - cd C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\x86\DISM
+  - cd C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM
   - dir
   - DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0"
 before_build:
