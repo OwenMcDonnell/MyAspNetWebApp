@@ -1,6 +1,6 @@
 image:
 - Ubuntu
-build: off
+#build: off
 
 for:
 -
