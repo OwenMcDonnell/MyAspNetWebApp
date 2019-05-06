@@ -1,5 +1,5 @@
-#image:
-#- Ubuntu
+image:
+- Ubuntu
 build: off
 
 build_script:
