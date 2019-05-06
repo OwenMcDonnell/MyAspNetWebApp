@@ -1,6 +1,15 @@
 image:
-- Ubuntu
+- Visual Studio 2017
 build: off
 
-build_script:
-- echo "build script"
+
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2017
+
+  build_script:
+  - echo Ubuntu build script
+  test_script:
+  - echo test script
