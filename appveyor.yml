@@ -3,7 +3,7 @@ image:
 - Visual Studio 2015
 build: off
 test_script:
-  - cmd: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\Community\bin\Roslyn\csc.exe /langversion:?
+  - cmd: cd C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\Community\bin
   - dir
 for:
 -
