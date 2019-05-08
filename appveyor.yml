@@ -3,8 +3,8 @@ image:
 - Visual Studio 2019 preview
 build: off
 test_script:
-  #- where -F -R \ csc.exe
-  - cmd: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\Community\MSBuild\15.0\Bin\Roslyn\csc.exe /langversion:?
+  - where -F -R \ csc.exe
+  - cmd: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Community\MSBuild\15.0\Bin\Roslyn\csc.exe /langversion:?
   - dir
 for:
 -
