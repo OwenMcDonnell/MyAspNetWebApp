@@ -3,7 +3,7 @@ image:
 - Visual Studio 2015
 build: off
 test_script:
-  - csc /langversion:?
+  - "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Roslyn\csc.exe" /langversion:?
 for:
 -
   matrix:
@@ -12,5 +12,4 @@ for:
 
   build_script:
   - echo Ubuntu build script
-  test_script:
-  - echo test script
+
