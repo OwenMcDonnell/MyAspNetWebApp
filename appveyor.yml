@@ -2,7 +2,8 @@ image:
 - Visual Studio 2017
 - Visual Studio 2015
 build: off
-
+test_script:
+  - csc -langversion:?
 for:
 -
   matrix:
