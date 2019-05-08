@@ -3,7 +3,7 @@ image:
 - Visual Studio 2015
 build: off
 test_script:
-  - cmd: cd C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\Professional\MSBuild\15.0\Bin
+  - cmd: cd C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017
   - dir
 for:
 -
