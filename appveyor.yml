@@ -1,5 +1,6 @@
 version: 1.0.{build}
-image: Windows server 2019 on Azure
+image: Visual Studio 2017
+
 environment:
   test_var: test_val
 branches:
