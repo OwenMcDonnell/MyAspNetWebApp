@@ -5,6 +5,7 @@ environment:
 branches:
   only:
     - master
+    - test
    
 #init:
   #- ps: Invoke-WebRequest "http://download.microsoft.com/download/B/E/6/BE63E3A5-5D1C-43E7-9875-DFA2B301EC70/adk/adksetup.exe" -OutFile c:\adksetup.exe
