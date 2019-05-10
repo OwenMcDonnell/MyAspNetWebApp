@@ -6,8 +6,8 @@ environment:
 before_build:
   - ps: gci env:*
   - nuget restore
-build:
-  verbosity: minimal
+build_script:
+  - echo "custom build script"
   
 for:
   -
