@@ -12,6 +12,9 @@ for:
   branches:
     only:
       - test
+      
+  environment:
+      test_var: overridden
 
   dotnet_csproj:
     patch: true
@@ -39,10 +42,3 @@ before_build:
 build:
   verbosity: minimal
   
-for:
-  -
-    branches:
-      only: 
-        - test
-    environment:
-      test_var: overridden
