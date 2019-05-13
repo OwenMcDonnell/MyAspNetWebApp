@@ -1,6 +1,7 @@
 version: '$(app_version).{build}'
 image: Visual Studio 2017
-
+init: 
+  - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER echo "PR" ELSE echo "non-PR"
 environment:
   app_version: '5.0.0'
   test_var: test_val
