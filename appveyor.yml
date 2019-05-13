@@ -1,7 +1,8 @@
 version: '$(app_version).{build}'
 image: Visual Studio 2017
 init: 
-  - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (echo PR) ELSE (echo non-PR)
+  - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
+  - echo %build_number%
 environment:
   app_version: '5.0.0'
   test_var: test_val
