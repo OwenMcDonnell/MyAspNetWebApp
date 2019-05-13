@@ -12,6 +12,9 @@ for:
   branches:
     only:
       - test
+      - master
+      - version-test
+      - version-test2
       
   environment:
       test_var: overridden
