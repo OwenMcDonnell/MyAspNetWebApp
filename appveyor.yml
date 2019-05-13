@@ -43,7 +43,8 @@ before_build:
   - ps: gci env:*
   - nuget restore
 after_build:
-  - type ./myaspnetwebapp/myaspnetwebapp.csproj
+  - cd myaspnetwebapp
+  - type myaspnetwebapp.csproj
 build:
   verbosity: minimal
   
