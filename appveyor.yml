@@ -43,7 +43,6 @@ before_build:
   - ps: gci env:*
   - nuget restore
 after_build:
-  - nuget push C:\Users\appveyor\AppData\Local\Temp\1\5mw1aywk3u\MyAspNetWebApp.5.0.0.134.nupkg -ApiKey ch87p25bjlvk9eghcs03rirt -Source https://ci.appveyor.com/nuget/britzkopf/api/v2/package
   - cd myaspnetwebapp
   - type myaspnetwebapp.csproj
 build:
