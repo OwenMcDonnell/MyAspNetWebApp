@@ -46,5 +46,7 @@ after_build:
   - cd myaspnetwebapp
   - type myaspnetwebapp.csproj
 build:
+  publish_nuget: true
+  publish_nuget_symbols: true
   verbosity: minimal
   
