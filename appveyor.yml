@@ -44,6 +44,7 @@ for:
 before_build:
   - ps: gci env:*
   - nuget restore
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 after_build:
   - cd myaspnetwebapp
   - type myaspnetwebapp.csproj
