@@ -6,16 +6,7 @@ init:
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
 install:
-- cmd: >-
-    set PATH=C:\Python37;C:\Python37\Scripts;%PATH%
-    
-    python -m pip install -U pip
-    
-    pip install wheel
-    
-    pip install scons
-    
-    pip install markdown
+- cmd: IF (%APPVEYOR_REPO_TAG%) appveyor PushArtifact appveyor.yml
     
 environment:
   app_version: '5.0.0'
