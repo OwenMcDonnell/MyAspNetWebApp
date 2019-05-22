@@ -45,11 +45,11 @@ for:
   #- dir
   #- DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0"
 before_build:
-  - Start-FileDownload 'https://ci.appveyor.com/api/projects/markfinal/buildamation/artifacts/bam.zip?branch=master^&job=Image%3A%20Visual%20Studio%202017'
+  #- Start-FileDownload 'https://ci.appveyor.com/api/projects/markfinal/buildamation/artifacts/bam.zip?branch=master^&job=Image%3A%20Visual%20Studio%202017'
   - dir
   - ps: gci env:*
   - nuget restore
-  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #after_build:
  # - cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
