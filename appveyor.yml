@@ -50,15 +50,16 @@ before_build:
   - ps: gci env:*
   - nuget restore
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-#after_build:
- # - cd myaspnetwebapp
+after_build:
+  - 7z a myapp.zip %APPVEYOR_BUILD_FOLDER%\MyAspNetWebApp\bin\*.dll
+  #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
 build:
   #publish_nuget: true
   #publish_nuget_symbols: true
   verbosity: minimal
 artifacts:
-  - path: bin
+  - path: myapp.zip
     name: my_web_app
     
 deploy:
