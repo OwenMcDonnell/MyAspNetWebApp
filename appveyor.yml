@@ -60,7 +60,7 @@ build:
   verbosity: minimal
 artifacts:
   - path: myapp.zip
-    name: my_web_app
+    name: blah
     
 deploy:
   - provider: Environment
