@@ -5,8 +5,8 @@ version: '$(app_version).{build}'
 init: 
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
-install:
-- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
+#install:
+#- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
     
 environment:
   app_version: '5.0.0'
@@ -17,7 +17,7 @@ for:
 -
   branches:
     only:
-      - master
+      - test
 
       
   environment:
@@ -49,12 +49,12 @@ before_build:
   - dir
   - ps: gci env:*
   - nuget restore
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #after_build:
  # - cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
 build:
-  publish_nuget: true
-  publish_nuget_symbols: true
+  #publish_nuget: true
+  #publish_nuget_symbols: true
   verbosity: minimal
   
