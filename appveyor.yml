@@ -1,13 +1,13 @@
 version: '$(app_version).{build}'
 
 image: Visual Studio 2017
-
+configuration: test
 init: 
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
-#install:
+install:
 #- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
-    
+  - cmd: echo %configuration%    
 environment:
   app_version: '5.0.0'
   test_var: test_val
