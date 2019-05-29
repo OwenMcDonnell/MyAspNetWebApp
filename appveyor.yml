@@ -69,7 +69,7 @@ notifications:
       - owenmcdonnell@appveyor.com
 
     subject: 'Build {{status}}'                  # optional
-    message: "{{branch}} and {{#messages}}{{message}}{{/messages}} and also {{commitAuthor}}"    # optional
+    message: "{{branch}} and {{#jobs}}{{#messages}}{{message}}{{/messages}}{{/jobs}} and also {{commitAuthor}}"    # optional
 
     on_build_success: true
     on_build_failure: true    
