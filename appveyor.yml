@@ -63,7 +63,7 @@ build:
 #artifacts:
  # - path: myapp.zip
     #name: my_web_app
-#notifications:
+notifications:
   - provider: Email
     to:
       - owenmcdonnell@appveyor.com
