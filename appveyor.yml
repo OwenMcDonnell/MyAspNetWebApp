@@ -39,6 +39,8 @@ for:
 install:
   - cmd: call C:\Miniconda36-x64\Scripts\activate.bat
   - cmd: conda update -y -q conda
+  - cmd: conda info --envs
+  - cmd: conda info
   - cmd: python --version
   - cmd: pip --version
   - ps: Add-AppveyorMessage "test message"
