@@ -40,6 +40,7 @@ install:
   - cmd: call C:\Miniconda36-x64\Scripts\activate.bat
   - cmd: conda update -y -q conda
   - cmd: python --version
+  - cmd: pip --version
   - ps: Add-AppveyorMessage "test message"
   - cmd: echo %configuration%    
   #- ps: Invoke-WebRequest "http://download.microsoft.com/download/0/1/C/01CC78AA-B53B-4884-B7EA-74F2878AA79F/adk/adksetup.exe" -OutFile c:\adksetup.exe
