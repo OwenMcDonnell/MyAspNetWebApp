@@ -1,6 +1,6 @@
 version: '$(app_version).{build}'
 
-image: Visual Studio 2017
+image: Windows server 2019
 
 init: 
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
@@ -54,7 +54,8 @@ install:
   #- DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0"
 before_build:
   #- Start-FileDownload 'https://ci.appveyor.com/api/projects/markfinal/buildamation/artifacts/bam.zip?branch=master^&job=Image%3A%20Visual%20Studio%202017'
-  - dir
+  - dir C:\OpenSSL-Win64\*
+  - ps: dir C:\OpenSSL-Win64\*
   - ps: gci env:*
   - nuget restore
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
