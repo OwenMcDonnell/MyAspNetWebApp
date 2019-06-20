@@ -54,7 +54,7 @@ install:
   #- DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0"
 before_build:
   #- Start-FileDownload 'https://ci.appveyor.com/api/projects/markfinal/buildamation/artifacts/bam.zip?branch=master^&job=Image%3A%20Visual%20Studio%202017'
-  - dir C:\OpenSSL-Win32\*
+  - dir C:\*
   - ps: dir C:\OpenSSL-Win64\*
   - ps: gci env:*
   - nuget restore
