@@ -17,5 +17,5 @@ for:
     
   configuration: ReleaseCI2017
   
-  build_script:
-    - echo %configuration%
+build_script:
+  - echo %configuration%
