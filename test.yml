@@ -1,0 +1,21 @@
+image:
+  - Visual Studio 2017
+  - Visual Studio 2019
+
+for:
+- 
+  matrix:
+    only:
+      - image: Visual Studio 2019
+    
+  configuration: ReleaseCI
+
+- 
+  matrix:
+    only:
+      - image: Visual Studio 2017
+    
+  configuration: ReleaseCI2017
+  
+  build_script:
+    - echo %configuration%
