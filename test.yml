@@ -8,14 +8,16 @@ for:
     only:
       - image: Visual Studio 2019
     
-  configuration: ReleaseCI
+  environment:
+    configuration: ReleaseCI
 
 - 
   matrix:
     only:
       - image: Visual Studio 2017
     
-  configuration: ReleaseCI2017
+  environment:
+    configuration: ReleaseCI2017
   
 build_script:
   - echo %configuration%
