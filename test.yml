@@ -1,6 +1,6 @@
 image:
   - Visual Studio 2017
-  - Visual Studio 2019
+  #- Visual Studio 2019
 configuration: debug
 for:
 - 
@@ -21,3 +21,5 @@ for:
   
 build_script:
   - echo %configuration%
+artifacts:
+  - path: ClassLibrary1
