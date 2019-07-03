@@ -17,6 +17,7 @@ environment:
   test_var: test_val
 
 for:
+
 -
   branches:
     only:
