@@ -1,10 +1,14 @@
 version: '$(app_version).{build}'
 
-image: Windows server 2019
+image: 
+  #- Windows server 2019
+  - Ubuntu
 
 init: 
+  - find /home -name octo
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
+  
 #install:
 #- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
  
