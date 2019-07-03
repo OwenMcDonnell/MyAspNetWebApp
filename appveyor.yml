@@ -5,7 +5,6 @@ image:
   - Ubuntu
 
 init: 
-
   - find ~/ -name octo
   - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
