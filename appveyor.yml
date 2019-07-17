@@ -6,9 +6,9 @@ image:
   - Visual Studio 2017
 
 init: 
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - find ~/ -name *octo*
-  - cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- find ~/ -name *octo*
+  #- cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
   
 install:
@@ -47,8 +47,8 @@ for:
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
   #- ps: Invoke-WebRequest "https://download.microsoft.com/download/E/F/A/EFA17CF0-7140-4E92-AC0A-D89366EBD79E/adkwinpeaddons/adkwinpesetup.exe" -OutFile c:\adksetup.exe
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
-install:
-  - find ~/ -name octo
+#install:
+ # - find ~/ -name octo
   #- cmd: call C:\Miniconda36-x64\Scripts\activate.bat
   #- cmd: conda update -y -q conda
   #- cmd: conda info --envs
