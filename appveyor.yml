@@ -12,13 +12,14 @@ init:
   - echo %build_number%
   
 install:
-  - mkdir adir
+
   - cd
-  - pushd adir
+  - pushd PUSHD c:\Windows
   - cd 
   - echo %errorlevel%
-  - cd
+
   - popd
+  - cd
 
 #- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
  
