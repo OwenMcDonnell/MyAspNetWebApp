@@ -13,7 +13,9 @@ init:
   
 install:
   - mkdir adir
+  - cd
   - pushd adir
+  - cd 
   - echo %errorlevel%
   - cd
   - popd
