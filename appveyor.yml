@@ -13,7 +13,7 @@ init:
 
   
 install:
-- cmd: "c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\devenv.exe" MyAspNetWebApp.sln /upgrade
+- cmd: c:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Community\Common7\IDE\devenv.exe MyAspNetWebApp.sln /upgrade
 - cmd: >-
     pushd c:\Windows
 
