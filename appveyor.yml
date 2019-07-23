@@ -10,10 +10,10 @@ init:
   #- find ~/ -name *octo*
   #- cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
-  - cd c:/ && dir /s *devenv*
+
   
 install:
-- devenv MyAspNetWebApp.sln /upgrade
+- cmd: "c:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe" MyAspNetWebApp.sln /upgrade
 - cmd: >-
     pushd c:\Windows
 
