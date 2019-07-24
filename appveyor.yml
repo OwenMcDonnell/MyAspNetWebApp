@@ -84,20 +84,4 @@ build:
   publish_nuget: true
   #publish_nuget_symbols: true
   verbosity: minimal
-#artifacts:
- # - path: myapp.zip
-    #name: my_web_app
-#notifications:
- # - provider: Email
-  #  to:
-   #   - owenmcdonnell@appveyor.com
 
-    #subject: 'Build {{status}}'                  # optional
-    #message: "{{branch}} and {{#jobs}}{{#messages}}{{message}}{{/messages}}{{/jobs}} and also {{commitAuthor}}"    # optional
-
-    #on_build_success: true
-    #on_build_failure: true    
-#deploy:
- # - provider: Environment
-  #  name: MyAspNetWebApp
-  
