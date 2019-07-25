@@ -81,7 +81,7 @@ before_build:
   - nuget restore
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 after_build:
-  - 7z a myapp.zip ./deploy.ps1 ./vars.json
+  - 7z a myapp.zip ./deploy.ps1 ./vars.json ./before-deploy.ps1
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
 artifacts:
