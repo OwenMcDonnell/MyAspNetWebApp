@@ -52,7 +52,7 @@ install:
 
     $vars = @{
       "var1" = $env:var1
-      "var2" = $env:var3
+      "var2" = $env:var2
     }
 
     $vars  | ConvertTo-Json | Set-Content .\vars.json
