@@ -44,7 +44,19 @@ for:
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
   #- ps: Invoke-WebRequest "https://download.microsoft.com/download/E/F/A/EFA17CF0-7140-4E92-AC0A-D89366EBD79E/adkwinpeaddons/adkwinpesetup.exe" -OutFile c:\adksetup.exe
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
-#install:
+install:
+- ps: >-
+    $env:var1 = 'val1'
+
+    $env:var2 = 'val2'
+
+    $vars = @{
+      "var1" = $env:var1
+      "var2" = $env:var3
+    }
+
+    $vars  | ConvertTo-Json | Set-Content .\vars.json
+  
  # - find ~/ -name octo
   #- cmd: call C:\Miniconda36-x64\Scripts\activate.bat
   #- cmd: conda update -y -q conda
@@ -75,6 +87,7 @@ after_build:
 artifacts:
   - path: myapp.zip
     name: my_web_app
+  - path: vars.json
 build:
   publish_nuget: true
   #publish_nuget_symbols: true
