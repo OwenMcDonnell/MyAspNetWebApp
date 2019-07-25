@@ -3,7 +3,7 @@ version: '$(app_version).{build}'
 image: 
   #- Windows server 2019
   #- Ubuntu
-  - Visual Studio 2019
+  - Visual Studio 2017
 
 init: 
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -13,15 +13,7 @@ init:
 
   
 install:
-- cmd: c:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Community\Common7\IDE\devenv.exe MyAspNetWebApp.sln /upgrade
-- cmd: >-
-    pushd c:\Windows
 
-    cd
-
-    echo %errorlevel%
-
-    popd
 #- cmd: IF "%APPVEYOR_REPO_TAG%"=="true" (appveyor PushArtifact appveyor.yml)
  
 environment:
@@ -80,6 +72,9 @@ after_build:
   - 7z a myapp.zip ./deploy.ps1
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
+artifacts:
+  - path: myapp.zip
+    name: my_web_app
 build:
   publish_nuget: true
   #publish_nuget_symbols: true
