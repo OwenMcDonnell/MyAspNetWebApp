@@ -1,3 +1,4 @@
+write-host $env:test_var
 $apiUrl = 'https://ci.appveyor.com/api'
 $token = $env:apiToken
 $headers = @{
@@ -15,7 +16,9 @@ $downloadLocation = 'C:\projects'
 # we assume here that build has a single job
 # get this job id
 #$jobId = $project.build.jobs[0].jobId
+write-host $env:APPVEYOR_JOB_ID
 $jobId = $env:APPVEYOR_JOB_ID 
+write-host $jobId
 
 # get job artifacts (just to see what we've got)
 $artifacts = Invoke-RestMethod -Method Get -Uri "$apiUrl/buildjobs/$jobId/artifacts" -Headers $headers
