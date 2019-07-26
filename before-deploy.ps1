@@ -38,8 +38,9 @@ Invoke-RestMethod -Method Get -Uri "$apiUrl/buildjobs/$jobId/artifacts/$artifact
 
 
 
-
-$vars = Get-Content "C:\appveyor\projects\$APPVEYOR_PROJECT_NAME\applications\$APPLICATION_NAME\vars.json" | ConvertFrom-Json
+$projectName = $env:APPVEYOR_PROJECT_NAME
+$appName = $env:APPLICATION_NAME
+$vars = Get-Content "C:\appveyor\projects\$APPVEYOR_PROJECT_NAME\applications\$appName\vars.json" | ConvertFrom-Json
 write-host $vars.var1
 write-host $vars
 [Environment]::SetEnvironmentVariable("var1", "$vars.var1", "Machine")
