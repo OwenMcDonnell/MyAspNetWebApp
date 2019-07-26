@@ -11,13 +11,13 @@ $projectSlug = 'myaspnetwebapp'
 $downloadLocation = 'C:\projects'
 
 # get project with last build details
-#$project = Invoke-RestMethod -Method Get -Uri "$apiUrl/projects/$accountName/$projectSlug" -Headers $headers
+$project = Invoke-RestMethod -Method Get -Uri "$apiUrl/projects/$accountName/$projectSlug" -Headers $headers
 
 # we assume here that build has a single job
 # get this job id
-#$jobId = $project.build.jobs[0].jobId
+$jobId = $project.build.jobs[0].jobId
 write-host $env:build_job_id
-$jobId = $env:APPVEYOR_JOB_ID 
+#$jobId = $env:APPVEYOR_JOB_ID 
 write-host $jobId
 
 # get job artifacts (just to see what we've got)
