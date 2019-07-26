@@ -8,7 +8,7 @@ $headers = @{
 $accountName = 'owenmcdonnell'
 $projectSlug = 'myaspnetwebapp'
 
-$downloadLocation = 'C:\projects'
+$downloadLocation = 'C:\appveyor\projects\myaspnetwebapp'
 
 # get project with last build details
 $project = Invoke-RestMethod -Method Get -Uri "$apiUrl/projects/$accountName/$projectSlug" -Headers $headers
