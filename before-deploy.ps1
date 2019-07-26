@@ -39,6 +39,6 @@ Invoke-RestMethod -Method Get -Uri "$apiUrl/buildjobs/$jobId/artifacts/$artifact
 
 
 
-$vars = Get-Content ./vars.json | ConvertFrom-Json
+$vars = Get-Content $localArtifactPath | ConvertFrom-Json
 $env:var1 = $vars.var1
 $env:var2 = $vars.var2
