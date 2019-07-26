@@ -16,7 +16,7 @@ $downloadLocation = 'C:\projects'
 # we assume here that build has a single job
 # get this job id
 #$jobId = $project.build.jobs[0].jobId
-write-host $env:APPVEYOR_JOB_ID
+write-host $env:build_job_id
 $jobId = $env:APPVEYOR_JOB_ID 
 write-host $jobId
 
