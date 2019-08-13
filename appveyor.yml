@@ -2,7 +2,7 @@ version: '$(app_version).{build}'
 
 image: 
   #- Windows server 2019
-  #- Ubuntu
+  - Ubuntu
   - Visual Studio 2017
 
 init: 
