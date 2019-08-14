@@ -85,10 +85,11 @@ build:
   verbosity: minimal
   publish_aspnet_core: true
 after_build:
-  - 7z a myapp.zip ./before-deploy.ps1 
+  - 7z a temp.zip ./before-deploy.ps1 
+  - 7z a myapp.zip temp.zip
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
   - path: myapp.zip
     name: my_web_app
