@@ -2,7 +2,7 @@ version: '$(app_version).{build}'
 
 image: 
   #- Windows server 2019
-  - Ubuntu
+  #- Ubuntu
   - Visual Studio 2017
 
 init: 
@@ -80,16 +80,17 @@ before_build:
   - ps: gci env:*
   - nuget restore
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+build:
+
+  verbosity: minimal
+  publish_aspnet_core: true
 after_build:
-  - 7z a myapp.zip ./before-deploy.ps1
+  - 7z a myapp.zip ./before-deploy.ps1 
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
   - path: myapp.zip
     name: my_web_app
   - path: vars.json
-build:
-  publish_nuget: true
-  #publish_nuget_symbols: true
-  verbosity: minimal
 
