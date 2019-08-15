@@ -19,13 +19,18 @@ init:
 environment:
   app_version: '5.0.0'
   test_var: test_val
+  matrix:
+    - var1: val1
+    - var2: val2
 
 for:
-
--
-  branches:
-    only:
-      - test
+  - matrix:
+      only: 
+        - var1: val1
+#-
+ # branches:
+  #  only:
+   #   - test
 
       
   environment:
