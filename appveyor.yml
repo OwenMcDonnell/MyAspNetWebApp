@@ -33,17 +33,17 @@ for:
    #   - test
 
       
-  environment:
-      test_var: overridden
+    environment:
+        test_var: overridden
 
-  dotnet_csproj:
-    patch: true
-    file: '**\*.csproj'
-    version: '1.2.3.5'
-    package_version: '1.2.3.5'
-    assembly_version: '1.2.3.5'
-    file_version: '1.2.3.5'
-    informational_version: '1.2.3.5'
+    dotnet_csproj:
+      patch: true
+      file: '**\*.csproj'
+      version: '1.2.3.5'
+      package_version: '1.2.3.5'
+      assembly_version: '1.2.3.5'
+      file_version: '1.2.3.5'
+      informational_version: '1.2.3.5'
 #init:
   #- ps: Invoke-WebRequest "http://download.microsoft.com/download/B/E/6/BE63E3A5-5D1C-43E7-9875-DFA2B301EC70/adk/adksetup.exe" -OutFile c:\adksetup.exe
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
