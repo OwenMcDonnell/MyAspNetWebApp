@@ -94,6 +94,7 @@ after_build:
   - 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
   - 7z a myapp.zip temp.zip
   - ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
+  - mkdir "c:\projects\neon_service\build"
   - ps: Move-Item -Path "MTK-QTAPP Installer-1.0.0-win32.msi" -Destination "c:\projects\neon_service\build\MTK-QTAPP Installer-1.0.0-win32.msi"
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
