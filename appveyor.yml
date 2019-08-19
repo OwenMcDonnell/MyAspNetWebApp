@@ -22,19 +22,6 @@ environment:
   matrix:
     - var1: val1
     - var2: val2
-    - var3: val1
-    - var4: val2
-    - var5: val1
-    - var6: val2
-    - var7: val1
-    - var8: val2
-    - var9: val1
-    - var10: val2
-    - var11: val
-    - var12: val
-    - var13: val
-    - var14: val
-    - var15: val
 
 for:
   - matrix:
@@ -103,14 +90,14 @@ build:
   verbosity: minimal
   publish_aspnet_core: true
 after_build:
-  #- dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
-  #- 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
-  #- 7z a myapp.zip temp.zip
+  - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
+  - 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+  - 7z a 'my app.zip' temp.zip
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
-  - path: myapp.zip
+  - path: '*.zip'
     name: my_web_app
   - path: vars.json
 
