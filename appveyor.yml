@@ -92,7 +92,8 @@ build:
 after_build:
   - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
   - 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
-  - 7z a 'my app.zip' temp.zip
+  - 7z a myapp.zip temp.zip
+  - ps: Rename-Item -Path ./myapp.zip -NewName "my app.zip"
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
