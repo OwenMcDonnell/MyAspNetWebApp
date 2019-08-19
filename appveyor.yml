@@ -30,6 +30,11 @@ environment:
     - var8: val2
     - var9: val1
     - var10: val2
+    - var11: val
+    - var12: val
+    - var13: val
+    - var14: val
+    - var15: val
 
 for:
   - matrix:
@@ -96,7 +101,7 @@ before_build:
 build:
 
   verbosity: minimal
-  #publish_aspnet_core: true
+  publish_aspnet_core: true
 after_build:
   #- dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
   #- 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
