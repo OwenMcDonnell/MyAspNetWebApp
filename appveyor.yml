@@ -1,12 +1,12 @@
 version: '$(app_version).{build}'
 
 image: 
-  #- Windows server 2019
+  - Windows server 2019
   #- Ubuntu
-  - Visual Studio 2017
+  #- Visual Studio 2017
 
 init: 
-  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- find ~/ -name *octo*
   #- cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
