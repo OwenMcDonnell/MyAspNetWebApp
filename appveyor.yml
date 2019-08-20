@@ -95,7 +95,7 @@ after_build:
   - 7z a myapp.zip temp.zip
   - ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
   - mkdir "c:\projects\myaspnetwebapp\neon_service\build"
-  - ps: Move-Item -Path "MTK-QTAPP Installer-1.0.0-win32.msi" -Destination "c:\projects\neon_service\build\MTK-QTAPP Installer-1.0.0-win32.msi"
+  - ps: Move-Item -Path "MTK-QTAPP Installer-1.0.0-win32.msi" -Destination "c:\projects\myaspnetwebapp\neon_service\build\MTK-QTAPP Installer-1.0.0-win32.msi"
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
