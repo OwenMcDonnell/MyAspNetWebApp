@@ -100,7 +100,7 @@ after_build:
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
-  - path: '*.msi'
+  - path: '**\*.msi'
     name: my_web_app
   - path: vars.json
 
