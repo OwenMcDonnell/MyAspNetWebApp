@@ -1,12 +1,12 @@
 version: '$(app_version).{build}'
 
 image: 
-  - Windows server 2019
+  #- Windows server 2019
   #- Ubuntu
-  #- Visual Studio 2017
+  - Visual Studio 2017
 
 init: 
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- find ~/ -name *octo*
   #- cmd: if DEFINED APPVEYOR_PULL_REQUEST_NUMBER (Set build_number=1) ELSE (Set build_number=%APPVEYOR_BUILD_NUMBER%)
   - echo %build_number%
@@ -22,27 +22,27 @@ environment:
    # - var1: val1
     #- var2: val2
 
-for:
-  - matrix:
-      only: 
-        - var1: val1
+#for:
+ # - matrix:
+  #    only: 
+   #     - var1: val1
 #-
  # branches:
   #  only:
    #   - test
 
       
-    environment:
-        test_var: overridden
+    #environment:
+     #   test_var: overridden
 
-    dotnet_csproj:
-      patch: true
-      file: '**\*.csproj'
-      version: '1.2.3.5'
-      package_version: '1.2.3.5'
-      assembly_version: '1.2.3.5'
-      file_version: '1.2.3.5'
-      informational_version: '1.2.3.5'
+#    dotnet_csproj:
+ #     patch: true
+  #    file: '**\*.csproj'
+   #   version: '1.2.3.5'
+    #  package_version: '1.2.3.5'
+     # assembly_version: '1.2.3.5'
+      #file_version: '1.2.3.5'
+      #informational_version: '1.2.3.5'
 #init:
   #- ps: Invoke-WebRequest "http://download.microsoft.com/download/B/E/6/BE63E3A5-5D1C-43E7-9875-DFA2B301EC70/adk/adksetup.exe" -OutFile c:\adksetup.exe
   #- ps: Start-Process c:\adksetup.exe -ArgumentList "/quiet" -Wait 
@@ -87,19 +87,19 @@ before_build:
 build:
 
   verbosity: minimal
-  publish_aspnet_core: true
+  publish_wap_beanstalk: true
 after_build:
-  - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
-  - 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
-  - 7z a myapp.zip temp.zip
-  - ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
-  - mkdir "c:\projects\myaspnetwebapp\neon_service\build"
-  - ps: Move-Item -Path "MTK-QTAPP Installer-1.0.0-win32.msi" -Destination "c:\projects\myaspnetwebapp\neon_service\build\MTK-QTAPP Installer-1.0.0-win32.msi"
+ # - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
+  #- 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+  #- 7z a myapp.zip temp.zip
+  #- ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
+  #- mkdir "c:\projects\myaspnetwebapp\neon_service\build"
+  #- ps: Move-Item -Path "MTK-QTAPP Installer-1.0.0-win32.msi" -Destination "c:\projects\myaspnetwebapp\neon_service\build\MTK-QTAPP Installer-1.0.0-win32.msi"
   #- cd myaspnetwebapp
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-artifacts:
-  - path: '**\*.msi'
-    name: my_web_app
-  - path: vars.json
+#artifacts:
+  #- path: '**\*.msi'
+   # name: my_web_app
+  #- path: vars.json
 
