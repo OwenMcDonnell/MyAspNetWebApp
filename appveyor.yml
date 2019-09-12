@@ -86,10 +86,10 @@ before_build:
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 build_script:
   - msbuild "C:\projects\myaspnetwebapp\myaspnetwebapp.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:DeployOnBuild=True /p:PublishProfile=appveyor
-build:
-
-  verbosity: minimal
-  publish_wap_beanstalk: true
+#build:
+#
+ # verbosity: minimal
+  #publish_wap_beanstalk: true
 #after_build:
  # - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
   #- 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
@@ -101,6 +101,9 @@ build:
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
+  #- path: .\eCommerceSite\bin\eCommerceSite.dll
+   # name: myapp
+    #type: ElasticBeanstalkPackage
   #- path
   #- path: '**\*.msi'
    # name: my_web_app
