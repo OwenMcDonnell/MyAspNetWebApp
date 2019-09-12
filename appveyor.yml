@@ -84,6 +84,8 @@ before_build:
   #- ps: gci env:*
   - nuget restore
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+build_script:
+  - msbuild "C:\projects\myaspnetwebapp\myaspnetwebapp.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:DeployOnBuild=True /p:PublishProfile=appveyor
 build:
 
   verbosity: minimal
