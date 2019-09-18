@@ -1,0 +1,42 @@
+version: '$(app_version).{build}'
+
+image: 
+  - Visual Studio 2017
+
+configuration:
+  - Debug
+  - Release
+  
+init: 
+  - echo %build_number%
+ 
+environment:
+  app_version: '5.0.0'
+  test_var: test_val
+
+before_build:
+  - nuget restore
+  
+build_script:
+  - msbuild "C:\projects\myaspnetwebapp\myaspnetwebapp.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:DeployOnBuild=True /p:PublishProfile=appveyor
+
+after_build:
+  - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
+  - 7z a myapp.zip ./deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+
+artifacts:
+  - path: myapp.zip
+    name: my_web_app
+
+deploy:
+  - provider: Environment
+    name: MyAspNetWebApp
+    on:
+      branch: master
+      configuration: Debug
+      
+  - provider: Environment
+    name: MyAspNetWebApp
+    on:
+      branch: test-deploy
+      configuration: Release
