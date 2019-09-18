@@ -90,9 +90,9 @@ build_script:
 #
  # verbosity: minimal
   #publish_wap_beanstalk: true
-#after_build:
- # - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
-  #- 7z a temp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+after_build:
+  - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
+  - 7z a myapp.zip ./before-deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
   #- 7z a myapp.zip temp.zip
   #- ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
   #- mkdir "c:\projects\myaspnetwebapp\neon_service\build"
@@ -101,6 +101,8 @@ build_script:
   #- type myaspnetwebapp.csproj
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 artifacts:
+  - path: myapp.zip
+    name: my_web_app
   #- path: .\eCommerceSite\bin\eCommerceSite.dll
    # name: myapp
     #type: ElasticBeanstalkPackage
