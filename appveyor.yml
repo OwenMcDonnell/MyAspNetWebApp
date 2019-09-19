@@ -95,7 +95,7 @@ after_build:
   - mkdir test
   - set ARTIFACT_NAME=trik-studio-installer-auto.zip
   - 7z a test/trik-studio-installer-auto.zip ./deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
-  - appveyor pushartifact test/%ARTIFACT_NAME%
+  - if "%test_var%" EQU "test_val" (appveyor pushartifact test/%ARTIFACT_NAME%)
   #- 7z a myapp.zip temp.zip
   #- ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
   #- mkdir "c:\projects\myaspnetwebapp\neon_service\build"
