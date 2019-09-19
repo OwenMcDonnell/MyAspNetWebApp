@@ -92,7 +92,9 @@ build_script:
   #publish_wap_beanstalk: true
 after_build:
   - dotnet publish "C:\projects\myaspnetwebapp\MyAspNetWebApp\MyAspNetWebApp.csproj" --output C:\Users\appveyor\AppData\Local\Temp\1\app --verbosity minimal
-  - 7z a myapp.zip ./deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+  - mkdir test
+  - 7z a test/myapp.zip ./deploy.ps1 C:\Users\appveyor\AppData\Local\Temp\1\app
+  - appveyor pushartifact test/myapp.zip
   #- 7z a myapp.zip temp.zip
   #- ps: Rename-Item -Path ./myapp.zip -NewName "MTK-QTAPP Installer-1.0.0-win32.msi"
   #- mkdir "c:\projects\myaspnetwebapp\neon_service\build"
